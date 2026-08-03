@@ -1,4 +1,5 @@
 function addTask() {
+
     const taskName =
         document.getElementById("taskName").value;
 
