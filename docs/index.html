@@ -14,11 +14,24 @@
     <div class="card">
         <h2>📅 今日すること</h2>
 
-        <label><input type="checkbox"> 計画書作成</label><br><br>
+        <div id="task-list">
 
-        <label><input type="checkbox"> カンファレンス</label><br><br>
+    <div class="task-item">
+        <label><input type="checkbox"> 計画書作成</label>
+        <button onclick="this.parentElement.remove()">🗑️</button>
+    </div>
 
+    <div class="task-item">
+        <label><input type="checkbox"> カンファレンス</label>
+        <button onclick="this.parentElement.remove()">🗑️</button>
+    </div>
+
+    <div class="task-item">
         <label><input type="checkbox"> LIFE入力</label>
+        <button onclick="this.parentElement.remove()">🗑️</button>
+    </div>
+
+</div>
     </div>
 
     <div class="card">
