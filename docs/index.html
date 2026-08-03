@@ -1,72 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>RehaTask</title>
-
-<style>
-body{
-    font-family: sans-serif;
-    background:#eef6ff;
-    margin:0;
-    padding:30px;
-}
-
-.container{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,0.15);
-}
-
-h1{
-    color:#1976d2;
-    text-align:center;
-}
-
-.section{
-    margin-top:30px;
-}
-
-.task{
-    background:#f5f5f5;
-    padding:12px;
-    margin-top:10px;
-    border-radius:8px;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RehaTask</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <div class="container">
+    <h1>🏥 RehaTask</h1>
 
-<h1>🏥 RehaTask</h1>
+    <div class="card">
+        <h2>📅 今日すること</h2>
 
-<div class="section">
-<h2>📅 今日すること</h2>
+        <label><input type="checkbox"> 計画書作成</label><br><br>
 
-<div class="task">□ 計画書作成</div>
-<div class="task">□ カンファレンス</div>
-<div class="task">□ LIFE入力</div>
+        <label><input type="checkbox"> カンファレンス</label><br><br>
+
+        <label><input type="checkbox"> LIFE入力</label>
+    </div>
+
+    <div class="card">
+        <h2>📆 カレンダー</h2>
+        <p>ここにカレンダーを追加します。</p>
+    </div>
+
+    <div class="card">
+        <h2>➕ タスク追加</h2>
+        <button onclick="alert('次回ここに追加画面を作ります！')">
+            タスクを追加
+        </button>
+    </div>
 
 </div>
 
-<div class="section">
-<h2>📆 カレンダー</h2>
-<p>（ここにカレンダーを作ります）</p>
-</div>
-
-<div class="section">
-<h2>➕ タスク追加</h2>
-<p>（ここに追加画面を作ります）</p>
-</div>
-
-</div>
+<script src="script.js"></script>
 
 </body>
 </html>
-<!-- テスト -->
