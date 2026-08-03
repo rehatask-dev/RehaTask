@@ -38,3 +38,17 @@ button{
 button:hover{
     background:#125aa0;
 }
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
