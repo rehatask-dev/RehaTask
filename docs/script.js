@@ -2,9 +2,19 @@ function addTask() {
     const task = prompt("追加するタスクを入力してください");
 
     if (task) {
-        const div = document.createElement("div");
-        div.innerHTML = `<label><input type="checkbox"> ${task}</label><br><br>`;
+        const list = document.getElementById("task-list");
 
-        document.querySelector(".card").appendChild(div);
+        const item = document.createElement("div");
+        item.className = "task-item";
+
+        item.innerHTML = `
+            <label>
+                <input type="checkbox">
+                ${task}
+            </label>
+            <button onclick="this.parentElement.remove()">🗑️</button>
+        `;
+
+        list.appendChild(item);
     }
 }
