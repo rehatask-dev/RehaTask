@@ -18,3 +18,12 @@ function addTask() {
         list.appendChild(item);
     }
 }
+function saveDate() {
+
+    const date =
+        document.getElementById("taskDate").value;
+
+    document.getElementById("selectedDate").textContent =
+        "選択した日付：" + date;
+
+}
