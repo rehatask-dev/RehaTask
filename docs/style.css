@@ -52,3 +52,18 @@ button:hover{
     padding: 5px 10px;
     cursor: pointer;
 }
+.task-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:10px 0;
+}
+
+.task-item button{
+    background:#ff4d4d;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:6px 10px;
+    cursor:pointer;
+}
