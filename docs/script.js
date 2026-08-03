@@ -1,29 +1,38 @@
 function addTask() {
-    const task = prompt("追加するタスクを入力してください");
+    const taskName =
+        document.getElementById("taskName").value;
 
-    if (task) {
-        const list = document.getElementById("task-list");
+    const deadline =
+        document.getElementById("taskDeadline").value;
 
-        const item = document.createElement("div");
-        item.className = "task-item";
-
-        item.innerHTML = `
-            <label>
-                <input type="checkbox">
-                ${task}
-            </label>
-            <button onclick="this.parentElement.remove()">🗑️</button>
-        `;
-
-        list.appendChild(item);
+    if (taskName === "") {
+        alert("タスク名を入力してください");
+        return;
     }
-}
-function saveDate() {
 
-    const date =
-        document.getElementById("taskDate").value;
+    const taskList =
+        document.getElementById("task-list");
 
-    document.getElementById("selectedDate").textContent =
-        "選択した日付：" + date;
+    const div =
+        document.createElement("div");
+
+    div.className = "task-item";
+
+    div.innerHTML = `
+        <label>
+            <input type="checkbox">
+            ${taskName}
+            📅 ${deadline}
+        </label>
+
+        <button onclick="this.parentElement.remove()">
+            🗑️
+        </button>
+    `;
+
+    taskList.appendChild(div);
+
+    document.getElementById("taskName").value = "";
+    document.getElementById("taskDeadline").value = "";
 
 }
