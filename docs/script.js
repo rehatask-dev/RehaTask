@@ -44,10 +44,12 @@ function saveTasks() {
 }
 
 function loadTasks() {
-    const saved = localStorage.getItem("taskList");
+  const saved = localStorage.getItem("taskList");
 
-    if (saved) {
-        document.getElementById("task-list").innerHTML = saved;
-    }
+  alert(saved);
+
+  if (saved) {
+    document.getElementById("task-list").innerHTML = saved;
+  }
 }
 window.onload = loadTasks;
