@@ -17,39 +17,11 @@
   <div class="card">
     <h2>📋 今日すること</h2>
 
-    <div id="task-list">
-
-      <div class="task-item">
-        <label>
-          <input type="checkbox" onchange="saveTasks()">
-          計画書作成
-        </label>
-        <button onclick="deleteTask(this)">🗑️</button>
-      </div>
-
-      <div class="task-item">
-        <label>
-          <input type="checkbox" onchange="saveTasks()">
-          カンファレンス
-        </label>
-        <button onclick="deleteTask(this)">🗑️</button>
-      </div>
-
-      <div class="task-item">
-        <label>
-          <input type="checkbox" onchange="saveTasks()">
-          LIFE入力
-        </label>
-        <button onclick="deleteTask(this)">🗑️</button>
-      </div>
-
-    </div>
-
+    <div id="task-list"></div>
   </div>
 
   <!-- カレンダー -->
   <div class="card">
-
     <h2>📅 カレンダー</h2>
 
     <input type="date" id="taskDate">
@@ -61,7 +33,6 @@
     <p id="selectedDate">
       日付を選択してください
     </p>
-
   </div>
 
   <!-- タスク追加 -->
@@ -69,30 +40,36 @@
 
     <h2>➕ タスク追加</h2>
 
-   <label>種類</label>
+    <label>カテゴリー</label>
 
-<select id="taskCategory">
-  <option>📄 総合実施計画書</option>
-  <option>💊 処方箋更新</option>
-  <option>🏥 医療病棟カンファ</option>
-  <option>👵 介護病棟カンファ</option>
-  <option>📊 LIFE</option>
-  <option>📋 一体的計画書</option>
-  <option>📝 その他</option>
-</select>
+    <select id="taskCategory" onchange="toggleCustomCategory()">
+      <option value="📄 総合実施計画書">📄 総合実施計画書</option>
+      <option value="💊 処方箋更新">💊 処方箋更新</option>
+      <option value="🏥 医療病棟カンファ">🏥 医療病棟カンファ</option>
+      <option value="👵 介護病棟カンファ">👵 介護病棟カンファ</option>
+      <option value="📊 LIFE">📊 LIFE</option>
+      <option value="📋 一体的計画書">📋 一体的計画書</option>
+      <option value="other">📝 その他</option>
+    </select>
 
-<input
-  type="text"
-  id="taskName"
-  placeholder="タスク名">
+    <input
+      type="text"
+      id="customCategory"
+      placeholder="カテゴリー名を入力"
+      style="display:none; margin-top:10px;">
 
-<input
-  type="date"
-  id="taskDeadline">
+    <input
+      type="text"
+      id="taskName"
+      placeholder="タスク名">
 
-<button onclick="addTask()">
-  タスクを追加
-</button>
+    <input
+      type="date"
+      id="taskDeadline">
+
+    <button onclick="addTask()">
+      タスクを追加
+    </button>
 
   </div>
 
