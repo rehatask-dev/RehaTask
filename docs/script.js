@@ -39,8 +39,14 @@ function addTask() {
     document.getElementById("taskDeadline").value = "";
 
 }
-function saveTasks() {
-    localStorage.setItem("taskList", document.getElementById("task-list").innerHTML);
+function loadTasks() {
+  const saved = localStorage.getItem("taskList");
+
+  alert(saved);
+
+  if (saved) {
+    document.getElementById("task-list").innerHTML = saved;
+  }
 }
 
 function loadTasks() {
