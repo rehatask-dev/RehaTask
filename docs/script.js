@@ -59,12 +59,15 @@ function addTask() {
   document.getElementById("taskCategory").selectedIndex = 0;
 
   toggleCustomCategory();
+  updateTodayTasks();
 }
 
 function deleteTask(button) {
   button.parentElement.remove();
   saveTasks();
+  updateTodayTasks();
 }
+
 
 function saveTasks() {
   localStorage.setItem(
@@ -99,6 +102,34 @@ function updateTodayTasks() {
 
   if (!todayList) return;
 
-  todayList.innerHTML = "<p>今日のタスクはありません</p>";
+  todayList.innerHTML = "";
+
+  const today = new Date().toISOString().split("T")[0];
+
+  const taskItems = document.querySelectorAll("#task-list .task-item");
+
+  let count = 0;
+
+  taskItems.forEach(task => {
+
+    const text = task.innerText;
+
+    if (text.includes(today)) {
+
+      const clone = task.cloneNode(true);
+
+      todayList.appendChild(clone);
+
+      count++;
+
+    }
+
+  });
+
+  if (count === 0) {
+
+    todayList.innerHTML = "<p>今日のタスクはありません</p>";
+
+  }
 
 }
