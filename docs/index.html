@@ -18,7 +18,7 @@
 
     <div class="task-item">
         <label>
-            <input type="checkbox"> 
+            <input type="checkbox" onchange="saveTasks()">
             計画書作成
         </label>
         <button onclick="this.parentElement.remove(); saveTasks();">🗑️</button>
@@ -26,7 +26,7 @@
 
     <div class="task-item">
         <label>
-            <input type="checkbox">
+            <input type="checkbox" onchange="saveTasks()">
             カンファレンス
         </label>
         <button onclick="this.parentElement.remove(); saveTasks();">🗑️</button>
@@ -34,7 +34,7 @@
 
     <div class="task-item">
         <label>
-            <input type="checkbox">
+            <input type="checkbox" onchange="saveTasks()">
             LIFE入力
         </label>
         <button onclick="this.parentElement.remove(); saveTasks();">🗑️</button>
