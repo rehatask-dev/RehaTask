@@ -50,3 +50,4 @@ function loadTasks() {
         document.getElementById("task-list").innerHTML = saved;
     }
 }
+window.onload = loadTasks;
