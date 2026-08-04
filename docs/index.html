@@ -1,73 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RehaTask</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RehaTask</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="container">
-    <h1>🏥 RehaTask</h1>
 
-    <div class="card">
-        <h2>📅 今日すること</h2>
+  <h1>🏥 RehaTask</h1>
 
-        <div id="task-list">
+  <!-- 今日すること -->
+  <div class="card">
+    <h2>📋 今日すること</h2>
 
-    <div class="task-item">
+    <div id="task-list">
+
+      <div class="task-item">
         <label>
-            <input type="checkbox" onchange="saveTasks()">
-            計画書作成
+          <input type="checkbox" onchange="saveTasks()">
+          計画書作成
         </label>
-        <button onclick="this.parentElement.remove(); saveTasks();">🗑️</button>
-    </div>
+        <button onclick="deleteTask(this)">🗑️</button>
+      </div>
 
-    <div class="task-item">
+      <div class="task-item">
         <label>
-            <input type="checkbox" onchange="saveTasks()">
-            カンファレンス
+          <input type="checkbox" onchange="saveTasks()">
+          カンファレンス
         </label>
-        <button onclick="this.parentElement.remove(); saveTasks();">🗑️</button>
-    </div>
+        <button onclick="deleteTask(this)">🗑️</button>
+      </div>
 
-    <div class="task-item">
+      <div class="task-item">
         <label>
-            <input type="checkbox" onchange="saveTasks()">
-            LIFE入力
+          <input type="checkbox" onchange="saveTasks()">
+          LIFE入力
         </label>
-        <button onclick="this.parentElement.remove(); saveTasks();">🗑️</button>
+        <button onclick="deleteTask(this)">🗑️</button>
+      </div>
+
     </div>
 
-</div>
-    </div>
+  </div>
 
-    <div class="card">
+  <!-- カレンダー -->
+  <div class="card">
+
     <h2>📅 カレンダー</h2>
 
     <input type="date" id="taskDate">
 
     <button onclick="saveDate()">
-        日付を保存
+      日付を保存
     </button>
 
     <p id="selectedDate">
-        日付を選択してください
+      日付を選択してください
     </p>
 
-</div>
+  </div>
 
-    <div class="card">
-        <h2>➕ タスク追加</h2>
-<input type="text" id="taskName" placeholder="タスク名">
+  <!-- タスク追加 -->
+  <div class="card">
 
-<input type="date" id="taskDeadline">
+    <h2>➕ タスク追加</h2>
 
-<button onclick="addTask()">
-    タスクを追加
-</button>
-    </div>
+    <input
+      type="text"
+      id="taskName"
+      placeholder="タスク名">
+
+    <input
+      type="date"
+      id="taskDeadline">
+
+    <button onclick="addTask()">
+      タスクを追加
+    </button>
+
+  </div>
 
 </div>
 
