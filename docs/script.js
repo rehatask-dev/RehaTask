@@ -91,4 +91,14 @@ function saveDate() {
 window.onload = function () {
   loadTasks();
   toggleCustomCategory();
+  updateTodayTasks();
 };
+function updateTodayTasks() {
+
+  const todayList = document.getElementById("today-list");
+
+  if (!todayList) return;
+
+  todayList.innerHTML = "<p>今日のタスクはありません</p>";
+
+}
