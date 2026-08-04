@@ -69,18 +69,30 @@
 
     <h2>➕ タスク追加</h2>
 
-    <input
-      type="text"
-      id="taskName"
-      placeholder="タスク名">
+   <label>種類</label>
 
-    <input
-      type="date"
-      id="taskDeadline">
+<select id="taskCategory">
+  <option>📄 総合実施計画書</option>
+  <option>💊 処方箋更新</option>
+  <option>🏥 医療病棟カンファ</option>
+  <option>👵 介護病棟カンファ</option>
+  <option>📊 LIFE</option>
+  <option>📋 一体的計画書</option>
+  <option>📝 その他</option>
+</select>
 
-    <button onclick="addTask()">
-      タスクを追加
-    </button>
+<input
+  type="text"
+  id="taskName"
+  placeholder="タスク名">
+
+<input
+  type="date"
+  id="taskDeadline">
+
+<button onclick="addTask()">
+  タスクを追加
+</button>
 
   </div>
 
