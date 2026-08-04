@@ -21,7 +21,7 @@ function addTask() {
 
     div.innerHTML = `
         <label>
-            <input type="checkbox">
+            <input type="checkbox" onchange="saveTasks()">
             ${taskName}
             📅 ${deadline}
         </label>
