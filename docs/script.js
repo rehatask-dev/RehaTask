@@ -26,7 +26,7 @@ function addTask() {
             📅 ${deadline}
         </label>
 
-        <button onclick="this.parentElement.remove()">
+       <button onclick="this.parentElement.remove(); saveTasks()"> 
             🗑️
         </button>
     `;
