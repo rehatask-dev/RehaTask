@@ -1,9 +1,32 @@
+function toggleCustomCategory() {
+  const category = document.getElementById("taskCategory").value;
+  const custom = document.getElementById("customCategory");
+
+  if (category === "other") {
+    custom.style.display = "block";
+  } else {
+    custom.style.display = "none";
+    custom.value = "";
+  }
+}
+
 function addTask() {
 
-  const taskName = document.getElementById("taskName").value;
+  let category = document.getElementById("taskCategory").value;
+
+  if (category === "other") {
+    category = document.getElementById("customCategory").value.trim();
+
+    if (category === "") {
+      alert("カテゴリー名を入力してください");
+      return;
+    }
+  }
+
+  const taskName = document.getElementById("taskName").value.trim();
   const deadline = document.getElementById("taskDeadline").value;
 
-  if (taskName.trim() === "") {
+  if (taskName === "") {
     alert("タスク名を入力してください");
     return;
   }
@@ -16,7 +39,9 @@ function addTask() {
   div.innerHTML = `
     <label>
       <input type="checkbox" onchange="saveTasks()">
-      ${taskName}　📅 ${deadline}
+      <strong>${category}</strong><br>
+      ${taskName}<br>
+      📅 ${deadline}
     </label>
 
     <button onclick="deleteTask(this)">
@@ -30,6 +55,10 @@ function addTask() {
 
   document.getElementById("taskName").value = "";
   document.getElementById("taskDeadline").value = "";
+  document.getElementById("customCategory").value = "";
+  document.getElementById("taskCategory").selectedIndex = 0;
+
+  toggleCustomCategory();
 }
 
 function deleteTask(button) {
@@ -61,4 +90,5 @@ function saveDate() {
 
 window.onload = function () {
   loadTasks();
+  toggleCustomCategory();
 };
