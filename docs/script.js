@@ -1,61 +1,64 @@
 function addTask() {
 
-    const taskName =
-        document.getElementById("taskName").value;
+  const taskName = document.getElementById("taskName").value;
+  const deadline = document.getElementById("taskDeadline").value;
 
-    const deadline =
-        document.getElementById("taskDeadline").value;
+  if (taskName.trim() === "") {
+    alert("タスク名を入力してください");
+    return;
+  }
 
-    if (taskName === "") {
-        alert("タスク名を入力してください");
-        return;
-    }
+  const taskList = document.getElementById("task-list");
 
-    const taskList =
-        document.getElementById("task-list");
+  const div = document.createElement("div");
+  div.className = "task-item";
 
-    const div =
-        document.createElement("div");
+  div.innerHTML = `
+    <label>
+      <input type="checkbox" onchange="saveTasks()">
+      ${taskName}　📅 ${deadline}
+    </label>
 
-    div.className = "task-item";
+    <button onclick="deleteTask(this)">
+      🗑️
+    </button>
+  `;
 
-    div.innerHTML = `
-        <label>
-            <input type="checkbox" onchange="saveTasks()">
-            ${taskName}
-            📅 ${deadline}
-        </label>
+  taskList.appendChild(div);
 
-       <button onclick="this.parentElement.remove(); saveTasks()"> 
-            🗑️
-        </button>
-    `;
+  saveTasks();
 
-    taskList.appendChild(div);
-
-    saveTasks();
-
-    document.getElementById("taskName").value = "";
-    document.getElementById("taskDeadline").value = "";
-
+  document.getElementById("taskName").value = "";
+  document.getElementById("taskDeadline").value = "";
 }
+
+function deleteTask(button) {
+  button.parentElement.remove();
+  saveTasks();
+}
+
+function saveTasks() {
+  localStorage.setItem(
+    "taskList",
+    document.getElementById("task-list").innerHTML
+  );
+}
+
 function loadTasks() {
   const saved = localStorage.getItem("taskList");
-
-  alert(saved);
 
   if (saved) {
     document.getElementById("task-list").innerHTML = saved;
   }
 }
 
-function loadTasks() {
-  const saved = localStorage.getItem("taskList");
+function saveDate() {
+  const date = document.getElementById("taskDate").value;
 
-  alert(saved);
-
-  if (saved) {
-    document.getElementById("task-list").innerHTML = saved;
-  }
+  document.getElementById("selectedDate").textContent =
+    "選択した日付：" + date;
 }
-window.onload = loadTasks;
+
+window.onload = function () {
+  loadTasks();
+};
