@@ -13,26 +13,34 @@
 
   <h1>🏥 RehaTask</h1>
 
-  <!-- 今日すること -->
+  <!-- 今日 -->
   <div class="card">
-    <h2>📋 今日すること</h2>
-
-    <div id="task-list"></div>
+    <h2>🔴 今日すること</h2>
+    <div id="today-list">
+      <p>今日のタスクはありません</p>
+    </div>
   </div>
 
-  <!-- カレンダー -->
+  <!-- 今週 -->
   <div class="card">
-    <h2>📅 カレンダー</h2>
+    <h2>🟠 今週すること</h2>
+    <div id="week-list">
+      <p>今週のタスクはありません</p>
+    </div>
+  </div>
 
-    <input type="date" id="taskDate">
+  <!-- 今月 -->
+  <div class="card">
+    <h2>🟢 今月すること</h2>
+    <div id="month-list">
+      <p>今月のタスクはありません</p>
+    </div>
+  </div>
 
-    <button onclick="saveDate()">
-      日付を保存
-    </button>
-
-    <p id="selectedDate">
-      日付を選択してください
-    </p>
+  <!-- 全タスク -->
+  <div class="card">
+    <h2>📋 全タスク</h2>
+    <div id="task-list"></div>
   </div>
 
   <!-- タスク追加 -->
@@ -43,20 +51,28 @@
     <label>カテゴリー</label>
 
     <select id="taskCategory" onchange="toggleCustomCategory()">
+
       <option value="📄 総合実施計画書">📄 総合実施計画書</option>
+
       <option value="💊 処方箋更新">💊 処方箋更新</option>
+
       <option value="🏥 医療病棟カンファ">🏥 医療病棟カンファ</option>
+
       <option value="👵 介護病棟カンファ">👵 介護病棟カンファ</option>
+
       <option value="📊 LIFE">📊 LIFE</option>
+
       <option value="📋 一体的計画書">📋 一体的計画書</option>
+
       <option value="other">📝 その他</option>
+
     </select>
 
     <input
       type="text"
       id="customCategory"
       placeholder="カテゴリー名を入力"
-      style="display:none; margin-top:10px;">
+      style="display:none;">
 
     <input
       type="text"
