@@ -33,6 +33,8 @@ function addTask() {
 
     taskList.appendChild(div);
 
+    saveTask();
+
     document.getElementById("taskName").value = "";
     document.getElementById("taskDeadline").value = "";
 
