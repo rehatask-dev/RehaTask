@@ -112,7 +112,7 @@ function updateTodayTasks() {
 
   taskItems.forEach(task => {
 
-    const text = task.innerText;
+    const text = task.textContent;
 
     if (text.includes(today)) {
 
