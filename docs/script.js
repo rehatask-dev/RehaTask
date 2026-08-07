@@ -59,7 +59,7 @@ function addTask() {
   document.getElementById("taskCategory").selectedIndex = 0;
 
   toggleCustomCategory();
-  updateTodayTask();
+  updateTodayTasks();
 }
 
 function deleteTask(button) {
