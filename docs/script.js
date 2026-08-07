@@ -67,6 +67,7 @@ function addTask() {
 function deleteTask(button) {
   button.parentElement.remove();
   saveTasks();
+  document.getElementById("task-list").offsetHeight;
   updateTodayTask();
   updateWeekTasks();
   updateMonthTasks();
