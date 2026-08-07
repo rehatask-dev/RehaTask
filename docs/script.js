@@ -59,13 +59,13 @@ function addTask() {
   document.getElementById("taskCategory").selectedIndex = 0;
 
   toggleCustomCategory();
-  updateHomeTask();
+  updateTodayTask();
 }
 
 function deleteTask(button) {
   button.parentElement.remove();
   saveTasks();
-  updateHomeTask();
+  updateTodayTask();
 }
 
 
@@ -132,23 +132,4 @@ function updateTodayTasks() {
 
   }
 
-}
-function updateHomeTasks() {
-
-  updateTodayTasks();
-  updateWeekTasks();
-  updateMonthTasks();
-
-}
-
-function updateTodayTasks() {
-  // あとで実装
-}
-
-function updateWeekTasks() {
-  // あとで実装
-}
-
-function updateMonthTasks() {
-  // あとで実装
 }
