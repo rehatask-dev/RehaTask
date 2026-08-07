@@ -65,12 +65,21 @@ function addTask() {
 }
 
 function deleteTask(button) {
+
+  // 全タスクから削除
   button.parentElement.remove();
+
+  // 保存
   saveTasks();
-  document.getElementById("task-list").offsetHeight;
-  updateTodayTask();
+
+  // 保存した内容を読み込み直す
+  loadTasks();
+
+  // ホーム画面を更新
+  updateTodayTasks();
   updateWeekTasks();
   updateMonthTasks();
+
 }
 
 
