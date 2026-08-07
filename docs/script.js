@@ -60,12 +60,14 @@ function addTask() {
 
   toggleCustomCategory();
   updateTodayTasks();
+  updateWeekTasks();
 }
 
 function deleteTask(button) {
   button.parentElement.remove();
   saveTasks();
   updateTodayTask();
+  updateWeekTasks();
 }
 
 
@@ -95,6 +97,7 @@ window.onload = function () {
   loadTasks();
   toggleCustomCategory();
   updateTodayTasks();
+  updateWeekTasks();
 };
 function updateTodayTasks() {
 
@@ -131,5 +134,52 @@ function updateTodayTasks() {
     todayList.innerHTML = "<p>今日のタスクはありません</p>";
 
   }
+
+}
+function updateWeekTasks() {
+
+ const weekList = document.getElementById("week-list");
+
+ if (!weekList) return;
+
+ weekList.innerHTML = "";
+
+ const today = new Date();
+
+ const taskItems = document.querySelectorAll("#task-list .task-item");
+
+ let count = 0;
+
+ taskItems.forEach(task => {
+
+  const text = task.textContent;
+
+  const match = text.match(/\d{4}-\d{2}-\d{2}/);
+
+  if (!match) return;
+
+  const deadline = new Date(match[0]);
+
+  const diff =
+    (deadline - today) / (1000 * 60 * 60 * 24);
+
+  if (diff >= 0 && diff <= 7) {
+
+   const clone = task.cloneNode(true);
+
+   weekList.appendChild(clone);
+
+   count++;
+
+  }
+
+ });
+
+ if (count === 0) {
+
+  weekList.innerHTML =
+   "<p>今週のタスクはありません</p>";
+
+ }
 
 }
