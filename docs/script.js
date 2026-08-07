@@ -61,6 +61,7 @@ function addTask() {
   toggleCustomCategory();
   updateTodayTasks();
   updateWeekTasks();
+  updateMonthTasks();
 }
 
 function deleteTask(button) {
@@ -68,6 +69,7 @@ function deleteTask(button) {
   saveTasks();
   updateTodayTask();
   updateWeekTasks();
+  updateMonthTasks();
 }
 
 
@@ -98,6 +100,7 @@ window.onload = function () {
   toggleCustomCategory();
   updateTodayTasks();
   updateWeekTasks();
+  updateMonthTasks();
 };
 function updateTodayTasks() {
 
@@ -179,6 +182,53 @@ function updateWeekTasks() {
 
   weekList.innerHTML =
    "<p>今週のタスクはありません</p>";
+
+ }
+
+}
+function updateMonthTasks() {
+
+ const monthList = document.getElementById("month-list");
+
+ if (!monthList) return;
+
+ monthList.innerHTML = "";
+
+ const today = new Date();
+
+ const taskItems = document.querySelectorAll("#task-list .task-item");
+
+ let count = 0;
+
+ taskItems.forEach(task => {
+
+  const text = task.textContent;
+
+  const match = text.match(/\d{4}-\d{2}-\d{2}/);
+
+  if (!match) return;
+
+  const deadline = new Date(match[0]);
+
+  const diff =
+    (deadline - today) / (1000 * 60 * 60 * 24);
+
+  if (diff >= 0 && diff <= 30) {
+
+   const clone = task.cloneNode(true);
+
+   monthList.appendChild(clone);
+
+   count++;
+
+  }
+
+ });
+
+ if (count === 0) {
+
+  monthList.innerHTML =
+   "<p>今月のタスクはありません</p>";
 
  }
 
